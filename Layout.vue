@@ -53,6 +53,16 @@ import Tags from './components/Tags.vue'
 import navLayoutMixin from './lib/navLayout.mixin'
 import { resolveSidebarItems, getTitle } from "./lib/util";
 import FooterBlog from './components/footerblog'
+import Vssue from 'vssue'
+// 引入对应平台的 api 包
+import GithubV3 from '@vssue/api-github-v3'
+// 引入 vssue 的样式文件
+import 'vssue/dist/vssue.css'
+Vue.use(Vssue, {
+  // 设置要使用的平台 api
+  api: GithubV3,
+  issueContent:({ url }) => `这个 Issue 由 Vssue 自动创建，用来存储该页面的评论：${url}`
+})
 const Page = () => import('./Page.vue')
 export default {
   mixins: [navLayoutMixin],

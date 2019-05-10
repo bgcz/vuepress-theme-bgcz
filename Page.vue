@@ -30,7 +30,7 @@
       </div>
     </div>
     <div id="comment-container" v-if="$site.themeConfig.comment">
-        <Comment :key="key"/>
+       <Vssue :title="title" :options="option" :key='key'/>
     </div>
   </div>
 </template>
@@ -38,7 +38,6 @@
 <script>
 import OutboundLink from "./components/OutboundLink.vue";
 import navLayoutMixin from "./lib/navLayout.mixin";
-const Comment = () => import('./package/comment')
 import {
     resolvePage,
     normalize,
@@ -55,24 +54,24 @@ export default {
     },
     watch: {
         '$route' (to, from) {
-            // console.log(to)
-            // console.info(from)
             this.change()
         }
     },
     methods: {
         change () {
-            //console.info('......keychangecomment.........')
             this.key = Date.now()
         }
     },
     mixins: [navLayoutMixin],
-    components: { OutboundLink, Comment },
+    components: { OutboundLink},
     props: ["sidebarItems"],
     computed: {
-        // key() {
-        //     return this.$route.name + Math.floor(Math.random()*10)
-        // },
+        option () {
+          let labels = ['Vssue']
+          labels.unshift(this.title)
+          let obj = {'labels':labels}
+          return Object.assign(this.$site.themeConfig.comment,obj)
+        },
         prev() {
             const prev = this.$page.frontmatter.prev;
             if (prev === false) {
@@ -94,7 +93,7 @@ export default {
             }
         },
         title() {
-            return this.$page.frontmatter.title;
+            return this.$page.title;
         },
         createTime() {
             const stamp = this.$page.frontmatter.date;
@@ -105,7 +104,7 @@ export default {
         },
         overrideStyle() {
             const accentColor = this.$site.themeConfig["accentColor"];
-            return accentColor ? { color: accentColor } : {};
+            return accentColor ? { color: accentColor } : {color: 'block'};
         },
         editLink() {
             const {

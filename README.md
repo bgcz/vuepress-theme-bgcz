@@ -1,4 +1,4 @@
-# vuepress-theme-zjblog
+# vuepress-theme-bgcz
 ## [点击预览](https://zjblog.github.io/)
 &ensp;&ensp;&ensp;&ensp;这个vuepress主题是我在[vuepress-theme-yubisaki](https://github.com/Yubisaki/vuepress-theme-yubisaki)这个主题之上
 进行修改而来的,原来的这个主题就非常好,只是我想加了一点我想要的内容和改了一点小问题,我搭建的博客[猿码集](https://zjblog.github.io/)为了能自动打包,所以才上传npm的.

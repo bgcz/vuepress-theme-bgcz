@@ -221,6 +221,11 @@ export default {
       }
     },
     baiduPush (href) {
+      const { themeConfig } = this.$site;
+      if(!themeConfig.baidpush){
+          console.info('close baidu')
+          return;
+      }
       if (href.substring(0,5) !== 'https') {
         console.info('dev')
         return;

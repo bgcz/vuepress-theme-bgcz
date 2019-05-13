@@ -1,9 +1,10 @@
 # vuepress-theme-bgcz
-## [点击预览](https://zjblog.github.io/)
+## [点击预览](https://bgcz.github.io/)
 &ensp;&ensp;&ensp;&ensp;这个vuepress主题是我在[vuepress-theme-yubisaki](https://github.com/Yubisaki/vuepress-theme-yubisaki)这个主题之上
-进行修改而来的,原来的这个主题就非常好,只是我想加了一点我想要的内容和改了一点小问题,我搭建的博客[猿码集](https://zjblog.github.io/)为了能自动打包,所以才上传npm的.
+进行修改而来的,原来的这个主题就非常好,只是我想加了一点我想要的内容和改了一点小问题,我搭建的博客[半个橙子](https://bgcz.github.io/).
+这个主题是之前改造的[vuepress-theme-zjblog](https://www.npmjs.com/package/vuepress-theme-zjblog),因为更换了评论的插件,所以新创建了这个主题.新插件[Vssue](https://github.com/meteorlxy/vssue).**每个使用github issues作为评论存储的插件,都修需要自己创建文章的issues,所以我借助github actions的能力,在每次push创建新的issues,[项目地址](https://github.com/marketplace/actions/createissuebylables),我们配置评论插件和此actions使用相同的lables,这样每次写了新文章,就不用手动创建问题了**
 ## 新加内容
-* 增加了百度的自动推送功能
+* 增加了百度的自动推送功能并且增加了推送的开关可以自由控制
 * 增加了个人感觉好玩的footer
 * 增加了一个card用来展示微信公众号
 * 增加二维码，手机扫码阅读
@@ -18,6 +19,8 @@
 * 使用actions自动部署到npm
 * 增加获取随机图片的配置
 * 增加网站统计
+* 修改原来tags页面的问题
+* 配合actions自动创建评论问题
 ## 新增的配置
 ```js
 themeConfig:{
@@ -30,13 +33,15 @@ themeConfig:{
   //新增展示的微信二维码
   zjwx: '',
   //把title和首页的标题区分开了,这是首页logo旁边的字
-  zjHome: '猿码集',
+  zjHome: '半个橙子',
   //友情链接
   zjurl:[{url:'https://www.bangechengzi.com/',name:'半个橙子'}],
   //每日一张随机图片地址
   backgroundUrl: 'https://www.bangechengzi.com/img/',
   // 友盟统计代码
-  cnzzUrl: ''
+  cnzzUrl: ''，
+  // 是否开启百度推送功能 默认false
+  baidpush: false
 }
 ```
 
